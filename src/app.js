@@ -28,8 +28,12 @@ App = {
                 // User denied account access...
             }
         }
-        // Legacy dapp browsers...
-        else if (window.web3) {
+        /* Legacy dapp browsers... Is there is an injected web3 instance?
+        Before diving in, we'll need to make sure the dapp is checking 
+        for MetaMask's web3 instance and that the extension itself is 
+        configured properly with Ganache.
+        */
+        else if (window.web3 !== 'undefined') {
             App.web3Provider = web3.currentProvider
             window.web3 = new Web3(web3.currentProvider)
                 // Acccounts always exposed
@@ -37,7 +41,10 @@ App = {
         }
         // Non-dapp browsers...
         else {
-            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!')
+            // If no injected web3 instance is detected, fallback to Ganache.
+            App.web3Provider = new web3.providers.HttpProvider('http://127.0.0.1:7545');
+            web3 = new Web3(App.web3Provider);
+            console.log('Non-Ethereum browser detected. Falling back to Ganache. You should consider trying MetaMask!')
         }
     },
 
