@@ -66,8 +66,8 @@ App = {
         console.log("Successfully retrieved value")
     },
     setValue: async() => {
-        var value = $('#setValue').val()
-        await App.Simple.set(value)
+        // calls set from Simple.sol which sets the contract Simple's attributes of name and data
+        await App.Simple.set($('#setName').val(), $('#setData').val())
         console.log("Successfully set value")
     }
 
