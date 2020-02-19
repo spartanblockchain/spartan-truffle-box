@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
+    <title>Hello Box</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Hello Box</title>
 
-    <!-- Bootstrap -->
-    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,9 +27,8 @@
 
 <body>
 
-    <!--Start YOUR Front End code from here-->
     <div class="app">
-        <form class="p-5">
+        <form class="jumbotron">
             <div class="m-5 form-group">
                 <h1 class="text-center">Hello Box</h1>
                 <input type="text" class="form-control" placeholder="Set Any String To Be Saved On Etherum Blockchain" id="setValue">
@@ -36,12 +39,21 @@
         </form>
     </div>
 
+        <!--Start YOUR Front End code from here-->
+    <div class="d-flex">
+        <h1 class="text-center">Block 1</h1>
+        <form>
+            <div class="text-center">
+                <label for="name"> Name: </label>
+                <input id="name" type="text" placeholder="Enter your name">
+            </div>
+            <div class="text-center">
+                <label for="tx-data"> Transaction Data: </label>
+                <input id="tx-data" type="text">
+            </div>
+        </form>
+    </div>
 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
     <script src="app.js"></script>
 </body>
