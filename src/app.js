@@ -49,12 +49,10 @@ App = {
             console.log('Non-Ethereum browser detected. Falling back to Ganache. You should consider trying MetaMask!')
         }
     },
-
     loadAccount: async() => {
         // Set the current blockchain account
         App.account = web3.eth.accounts[0]
     },
-
     loadContract: async() => {
         // Create a JavaScript version of the smart contract
         const Simple = await $.getJSON('Simple.json')
@@ -67,11 +65,12 @@ App = {
     getvalue: async() => {
         var value = await App.Simple.get()
         $('#getValue').html(value)
-
+        console.log("Successfully retrieved value")
     },
     setValue: async() => {
-        var value = $('#setValue').val()
-        await App.Simple.set(value)
+        // calls set from Simple.sol which sets the contract Simple's attributes of name and data
+        await App.Simple.set($('#setName').val(), $('#setData').val())
+        console.log("Successfully set value")
     }
 
 }
