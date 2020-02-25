@@ -22,41 +22,38 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
 </head>
 
 <body>
-
+     <!--Old Front End code from here-->
     <div class="app">
         <form class="jumbotron">
             <div class="m-5 form-group">
                 <h1 class="text-center">Etherum Blockchain Input Form</h1>
                 <input type="text" class="form-control" placeholder="Name" id="setName">
                 <input type="text" class="form-control" placeholder="Data" id="setData">
-                <button type="button" onclick="App.getvalue()" class="btn btn-primary pull-left mt-3">Get Value</button>
-                <button type="button" onclick="App.setValue()" class="btn btn-primary float-right mt-3">Set Value</button>
+                <button type="button" class="btn btn-primary pull-left mt-3">N/A</button>
+                <button type="button" class="btn btn-primary float-right mt-3">N/A</button>
             </div>
             <h1 class="text-center" id="getValue"></h1>
         </form>
     </div>
 
-        <!--Start YOUR Front End code from here-->
+    <!--Start YOUR Front End code from here-->
+
     <div class="d-flex">
-        <h1 class="text-center">Block 1</h1>
-        <form>
-            <div class="text-center">
-                <label for="name"> Name: </label>
-                <input id="name" type="text" placeholder="Enter your name">
-            </div>
-            <div class="text-center">
-                <label for="tx-data"> Transaction Data: </label>
-                <input id="tx-data" type="text">
-            </div>
-        </form>
+        <!-- Blockchain code inserted here -->
     </div>
 
+    <button type="button" onclick="App.getvalue()" class="btn btn-primary pull-left mt-3">Get Value</button>
+    <button type="button" onclick="App.setValue()" class="btn btn-primary float-right mt-3">Set Value</button>
+
+
+    <!-- js files included here-->
     <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+    <script src="blockchain.js"></script>
     <script src="app.js"></script>
+
 </body>
 
 </html>
