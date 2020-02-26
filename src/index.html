@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Hello Box</title>
+    <title>Spartan Truffle Box</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="index.css">
 
     <!-- jQuery library -->
@@ -27,22 +27,28 @@
 </head>
 
 <body>
-    <!--Start YOUR Front End code from here-->
-    <h1 class="text-center">Etherum Blockchain Input Form</h1>
+    <header>
+        <!--Start YOUR Front End code from here-->
+        <h3 class="title">Etherum Blockchain Input Form</h3>
+        <h5 class="author">Open Source Project by Spartan Blockchain Solutions</h5>
+
+    </header>
 
     <div class="blockchain">
         <!-- Blockchain code inserted here -->
     </div>
 
-    <button type="button" onclick="App.getvalue()" class="btn btn-primary pull-left mt-3">Get Value</button>
-    <button type="button" onclick="App.setValue()" class="btn btn-primary float-right mt-3">Set Value</button>
-    <h1 class="text-center" id="getValue"></h1>
-
+    <div class="set-get">
+        <button type="button" onclick="App.setValue()" class="">Set Value</button>
+        <button type="button" onclick="App.getvalue()" class="">Get Value</button>
+    </div>
+    
+    <h1 id="getValue"></h1>
 
 
     <!-- js files included here-->
     <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
-    <script src="blockchain.js"></script>
+    <script src="blockchain.js"></script> 
     <script src="app.js"></script>
 
 </body>

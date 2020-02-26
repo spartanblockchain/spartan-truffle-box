@@ -1,0 +1,49 @@
+/* HEADER */
+
+header{
+    justify-content: center;
+    display: flex;
+
+}
+
+.title{
+    font-size: 20px;
+    margin-right: 20%;
+}
+
+.author{
+    font-size: 12px;
+    padding: 5px;
+} 
+
+/* BODY */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fef7ff;
+}
+
+/* BLOCKCHAIN */
+
+.block, .set-get{
+    text-align: center;
+}
+
+.blockchain{
+    text-align: -webkit-center;
+}
+.block{
+    border:1px solid black;
+    background: #f8f8f8;
+    width: 64%;
+    padding: 20px;
+    margin: 16px;
+}
+
+.block h1{
+    margin: 6px;
+}
+
+.set-get{
+    margin: 20px;
+}
