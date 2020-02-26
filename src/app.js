@@ -70,10 +70,9 @@ App = {
     },
     setValue: async() => {
         // calls set from Simple.sol which sets the contract Simple's attributes of name and data
-        await App.Simple.set($('#setName').val(), $('#setData').val())
-        console.log("Successfully set value")
+        var count = App.blockchain.get_count() - 1
+        await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val())
         App.blockchain.add_blockchain()
-        console.log("Successfully added a blockchain")
     }
 }
 

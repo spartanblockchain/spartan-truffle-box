@@ -3,31 +3,40 @@ class Blockchain {
     constructor() {
       this.count = 1;
       this.add_blockchain();
-      console.log("Blockchain instance successfully instantiated")
     }
 
     get_count() {
       return this.count;
     }
-
     get_header(){
-        return '<h1 class="text-center">Block ' + this.get_count() + '</h1>';
+        return '<div class="block"><h1 class="text-center">Block ' + this.get_count() + '</h1>';
+    }
+    get_name(){
+        return '<label for="name"> Name: </label><input id="setName-' + this.get_count() + '" type="text" placeholder="Enter your name" required>';
+    }
+    get_data(){
+        return '<label for="data"> Transaction Data: </label><input id="setData-' + this.get_count() + '" type="text" placeholder="Enter your data" required>';
+    }
+    get_form(){
+        return '<form id="form-' + this.get_count() + '">' + this.get_name() + this.get_data()  + '</form></div>';
     }
 
-    get_div(){
-        return '<div class="block-' + this.get_count()  + '">';
+    disable(element) {
+        document.getElementById(element).disabled = true;
     }
-    
+
+    disable_previous(){
+        if (this.get_count() != 1){
+            var count = this.get_count() - 1
+            this.disable("setName-" + count)
+            this.disable("setData-" + count)
+        }
+    }
+
     add_blockchain(){
-        var html = this.get_div() + this.get_header()
-        $(function() {
-            // $('#loadContent').load('input.html', function() {
-            // alert( "Load was performed." );
-            // });
-            $.get("input.html", function (data) {
-                $(".d-flex").append(html + data + "<div");
-            });
-        });
+        this.disable_previous()
+        $(".blockchain").append(this.get_header() + this.get_form());
         this.count++;
+        console.log("Block #" + (this.get_count() - 1) + " Added")
     }
   }
