@@ -72,6 +72,10 @@ App = {
         // calls set from Simple.sol which sets the contract Simple's attributes of name and data
         var count = App.blockchain.get_count() - 1
         await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val())
+        App.blockchain.disable_previous()
+    },
+    addBlock: async() =>{
+        App.blockchain.disable_previous()
         App.blockchain.add_blockchain()
     }
 }

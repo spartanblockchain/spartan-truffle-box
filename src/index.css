@@ -40,10 +40,18 @@ body{
     margin: 16px;
 }
 
-.block h1{
-    margin: 6px;
+.block p{
+    margin: 8px;
+    font-size: 24px;
 }
 
 .set-get{
     margin: 20px;
+}
+
+
+/* GET VALUE */
+
+#getValue{
+    text-align: center;
 }

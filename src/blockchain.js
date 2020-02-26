@@ -9,7 +9,7 @@ class Blockchain {
       return this.count;
     }
     get_header(){
-        return '<div class="block"><h1>Block ' + this.get_count() + '</h1>';
+        return '<div class="block"><p>Block ' + this.get_count() + '</h1>';
     }
     get_name(){
         return '<label for="name"> Name: </label><input id="setName-' + this.get_count() + '" type="text" placeholder="Enter your name" required>';
@@ -37,7 +37,6 @@ class Blockchain {
     }
 
     add_blockchain(){
-        this.disable_previous()
         $(".blockchain").append(this.get_header() + this.get_form());
         this.count++;
         console.log("Block #" + (this.get_count() - 1) + " Added")
