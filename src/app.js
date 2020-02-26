@@ -73,11 +73,8 @@ App = {
         var count = App.blockchain.get_count() - 1
         await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val())
         App.blockchain.disable_previous()
-    },
-    addBlock: async() =>{
-        App.blockchain.disable_previous()
         App.blockchain.add_blockchain()
-    }
+    },
 }
 
 $(() => {

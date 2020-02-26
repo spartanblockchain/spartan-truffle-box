@@ -9,11 +9,13 @@ header{
 .title{
     font-size: 20px;
     margin-right: 20%;
+    margin: 3% 6%;
 }
 
 .author{
     font-size: 12px;
     padding: 5px;
+    margin: 3% 6%;
 } 
 
 /* BODY */
