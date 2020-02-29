@@ -2,7 +2,7 @@ class Blockchain {
 
     constructor() {
       this.count = 1;
-      this.add_blockchain();
+      this.add_block();
     }
 
     get_count() {
@@ -36,7 +36,7 @@ class Blockchain {
         }
     }
 
-    add_blockchain(){
+    add_block(){
         $(".blockchain").append(this.get_header() + this.get_form());
         this.count++;
         console.log("Block #" + (this.get_count() - 1) + " Added")
