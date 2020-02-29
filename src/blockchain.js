@@ -9,7 +9,7 @@ class Blockchain {
       return this.count;
     }
     get_header(){
-        return '<div class="block"><p>Block ' + this.get_count() + '</h1>';
+        return '<div class="block-edit"><h2>Block ' + this.get_count() + '</h1>';
     }
     get_name(){
         return '<label for="name"> Name: </label><input id="setName-' + this.get_count() + '" type="text" placeholder="Enter your name" required>';
@@ -21,18 +21,23 @@ class Blockchain {
         return '<form id="form-' + this.get_count() + '">' + this.get_name() + this.get_data()  + '</form></div>';
     }
 
-    disable(element) {
+    disable_entry(element) {
         var element = document.getElementById(element);
         element.disabled = true;
         element.style.backgroundColor = "#dddad9";
-        element.placeholder = "";
+        // element.placeholder = "";
+    }
+
+    disable_block(element) {
+        $(element).addClass("block-disable");
     }
 
     disable_previous(){
         if (this.get_count() != 1){
             var count = this.get_count() - 1
-            this.disable("setName-" + count)
-            this.disable("setData-" + count)
+            this.disable_entry("setName-" + count)
+            this.disable_entry("setData-" + count)
+            this.disable_block(".block-edit")
         }
     }
 
