@@ -17,7 +17,8 @@ App = {
 
         App.web3Provider = new web3.providers.HttpProvider('http://127.0.0.1:8545');
         web3 = new Web3(App.web3Provider);
-        // console.log('Non-Ethereum browser detected. Falling back to Ganache. You should consider trying MetaMask!')
+        web3.eth.defaultAccount = web3.eth.accounts[0]
+        console.log('Non-Ethereum browser detected. Falling back to Ganache. You should consider trying MetaMask!')
         
     },
     loadAccount: async() => {
