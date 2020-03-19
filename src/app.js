@@ -46,6 +46,7 @@ App = {
             return
         }
         App.blockchain.disable_previous()
+        App.blockchain.add_block()
     },
 }
 
