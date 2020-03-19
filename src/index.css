@@ -34,9 +34,26 @@ body{
 .blockchain{
     text-align: -webkit-center;
 }
-.block{
+
+.block-edit{
     border:1px solid black;
     background: #f8f8f8;
+    width: 64%;
+    padding: 20px;
+    margin: 16px;
+}
+
+.block-disable{
+    border:1px solid black;
+    background: #d6cece;
+    width: 64%;
+    padding: 20px;
+    margin: 16px;
+}
+
+.block-invalid{
+    border:1px solid black;
+    background: #fc030f;
     width: 64%;
     padding: 20px;
     margin: 16px;

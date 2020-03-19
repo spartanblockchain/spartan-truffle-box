@@ -2,14 +2,14 @@ class Blockchain {
 
     constructor() {
       this.count = 1;
-      this.add_blockchain();
+      this.add_block();
     }
 
     get_count() {
       return this.count;
     }
     get_header(){
-        return '<p>Block ' + this.get_count() + '</h1>';
+        return '<div class="block-edit"><h2>Block ' + this.get_count() + '</h1>';
     }
     get_name(){
         return '<label for="name"> Name: </label><input id="setName-' + this.get_count() + '" type="text" placeholder="Enter your name" required>';
@@ -24,23 +24,28 @@ class Blockchain {
         return '<div class="block">' + this.get_header() + this.get_form() + '</div>'
     }
 
-    disable(element) {
+    disable_entry(element) {
         var element = document.getElementById(element);
         element.disabled = true;
         element.style.backgroundColor = "#dddad9";
-        element.placeholder = "";
+        // element.placeholder = "";
+    }
+
+    disable_block(element) {
+        $(element).addClass("block-disable");
     }
 
     disable_previous(){
         if (this.get_count() != 1){
             var count = this.get_count() - 1
-            this.disable("setName-" + count)
-            this.disable("setData-" + count)
+            this.disable_entry("setName-" + count)
+            this.disable_entry("setData-" + count)
+            this.disable_block(".block-edit")
         }
     }
 
-    add_blockchain(){
-        $(".blockchain").append(this.get_html());
+    add_block(){
+        $(".blockchain").append(this.get_header() + this.get_form());
         this.count++;
         console.log("Block #" + (this.get_count() - 1) + " Added")
     }
