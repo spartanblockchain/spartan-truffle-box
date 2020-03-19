@@ -51,9 +51,9 @@ body{
     margin: 20px;
 }
 
-
 /* GET VALUE */
 
 #getValue{
     text-align: center;
+    font-size: 20px;
 }

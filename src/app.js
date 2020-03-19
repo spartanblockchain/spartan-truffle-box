@@ -69,10 +69,15 @@ App = {
         console.log("Successfully retrieved value")
     },
     setValue: async() => {
-        // calls set from Simple.sol which sets the contract Simple's attributes of name and data
+
         var count = App.blockchain.get_count() - 1
-        await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val())
+        if (!$('#setName-' + count).val() || !$('#setData-' + count).val()){
+            return
+        }
         App.blockchain.disable_previous()
+
+        // calls set from Simple.sol which sets the contract Simple's attributes of name and data
+        await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val())
         App.blockchain.add_blockchain()
     },
 }
