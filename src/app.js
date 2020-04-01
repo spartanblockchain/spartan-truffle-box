@@ -13,12 +13,10 @@ App = {
     loadWeb3: async() => {
         
         // If no injected web3 instance is detected, fallback to Ganache.
-        console.log("Ganache");
-
         App.web3Provider = new web3.providers.HttpProvider('http://127.0.0.1:8545');
         web3 = new Web3(App.web3Provider);
-        web3.eth.defaultAccount = web3.eth.accounts[0]
-        console.log('Non-Ethereum browser detected. Falling back to Ganache. You should consider trying MetaMask!')
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        console.log('Using Ganache.');
         
     },
     loadAccount: async() => {
@@ -27,17 +25,19 @@ App = {
     },
     loadContract: async() => {
         // Create a JavaScript version of the smart contract
-        const Simple = await $.getJSON('Simple.json')
-        App.contracts.Simple = TruffleContract(Simple)
-        App.contracts.Simple.setProvider(App.web3Provider)
+        const Simple = await $.getJSON('Simple.json');
+        console.log(Simple);
+        App.contracts.Simple = TruffleContract(Simple);
+        console.log(App.contracts.Simple);
+        App.contracts.Simple.setProvider(App.web3Provider);
 
         // Hydrate the smart contract with values from the blockchain
-        App.Simple = await App.contracts.Simple.deployed()
+        App.Simple = await App.contracts.Simple.deployed();
     },
     getvalue: async() => {
-        var value = await App.Simple.get()
-        $('#getValue').html(value)
-        console.log("Successfully retrieved value")
+        var value = await App.Simple.get();
+        $('#getValue').html(value);
+        console.log("Successfully retrieved value");
     },
     setValue: async() => {
 
@@ -54,6 +54,6 @@ App = {
 $(() => {
 
     $(window).on('load', function(){ 
-        App.load()
+        App.load();
     });
 })
