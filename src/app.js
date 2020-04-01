@@ -48,7 +48,6 @@ App = {
         App.blockchain.disable_previous();
         App.blockchain.add_block();
         await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val());
-
     },
 }
 
