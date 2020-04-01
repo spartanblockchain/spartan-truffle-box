@@ -41,12 +41,13 @@ App = {
     },
     setValue: async() => {
 
-        var count = App.blockchain.get_count() - 1
+        var count = App.blockchain.get_count() - 1;
         if (!$('#setName-' + count).val() || !$('#setData-' + count).val()){
-            return
+            return;
         }
-        App.blockchain.disable_previous()
-        App.blockchain.add_block()
+        App.blockchain.disable_previous();
+        App.blockchain.add_block();
+        await App.Simple.set($('#setName-' + count).val(), $('#setData-' + count).val());
     },
 }
 
