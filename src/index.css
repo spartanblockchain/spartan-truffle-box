@@ -36,12 +36,20 @@ body{
 }
 
 .block-edit{
-    border:1px solid black;
-    background: #f8f8f8;
+    border:1px solid rgb(0, 0, 0);
+    background: #ffffff;
     width: 64%;
     padding: 20px;
     margin: 16px;
 }
+
+input:invalid {
+    background: pink;
+  }
+
+input:valid {
+    background: lightgreen;
+  }
 
 .block-disable{
     border:1px solid black;
@@ -52,7 +60,7 @@ body{
 }
 
 .block-invalid{
-    border:1px solid black;
+    border:1px solid fc030fblack;
     background: #fc030f;
     width: 64%;
     padding: 20px;
