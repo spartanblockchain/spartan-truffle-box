@@ -43,6 +43,14 @@ body{
     margin: 16px;
 }
 
+input:invalid {
+    background: pink;
+  }
+
+input:valid {
+    background: lightgreen;
+  }
+
 .block-disable{
     border:1px solid black;
     background: #d6cece;
