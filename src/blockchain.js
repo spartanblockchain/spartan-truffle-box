@@ -60,14 +60,15 @@ class Blockchain {
         $(".blockchain").append(this.get_header() + this.get_form());
         var current_name = "#setName-" + this.get_count();
         var current_data = "#setData-" + this.get_count();
-        $(current_name).change({param1: current_name, param2: current_data, param3: this.get_count()}, this.hash_info);
-        $(current_data).change({param1: current_name, param2: current_data, param3: this.get_count()}, this.hash_info);
+        $(current_name).keypress({param1: current_name, param2: current_data, param3: this.get_count()}, this.hash_info);
+        $(current_data).keypress({param1: current_name, param2: current_data, param3: this.get_count()}, this.hash_info);
 
         this.count++;
         console.log("Block #" + (this.get_count() - 1) + " Added");
     }
 }
 
+// Code from: https://geraintluff.github.io/sha256/
 var sha256 = function sha256(ascii) {
 	function rightRotate(value, amount) {
 		return (value>>>amount) | (value<<(32 - amount));
