@@ -26,9 +26,7 @@ App = {
     loadContract: async() => {
         // Create a JavaScript version of the smart contract
         const Simple = await $.getJSON('Simple.json');
-        console.log(Simple);
         App.contracts.Simple = TruffleContract(Simple);
-        console.log(App.contracts.Simple);
         App.contracts.Simple.setProvider(App.web3Provider);
 
         // Hydrate the smart contract with values from the blockchain
