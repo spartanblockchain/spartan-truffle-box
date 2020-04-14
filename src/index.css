@@ -1,19 +1,21 @@
 /* HEADER */
-
-header{
+header {
+    overflow: hidden;
+    background-color: #E8D9B5;
+    padding: 15px 10px;
+    border-radius: 25px;
     justify-content: center;
     display: flex;
-
-}
-
+  }
+  
 .title{
-    font-size: 20px;
+    font-size: 25px;
     margin-right: 20%;
     margin: 3% 6%;
 }
 
 .author{
-    font-size: 12px;
+    font-size: 14px;
     padding: 5px;
     margin: 3% 6%;
 } 
@@ -22,7 +24,7 @@ header{
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fef7ff;
+    background-color: #173F35;
 }
 
 /* BLOCKCHAIN */
@@ -37,14 +39,15 @@ body{
 
 .block-edit{
     border:1px solid rgb(0, 0, 0);
-    background: #ffffff;
+    background: #E8D9B5;
     width: 64%;
     padding: 20px;
     margin: 16px;
+    border-radius: 25px;
 }
 
 input:invalid {
-    background: pink;
+    background: #ffffff;
   }
 
 input:valid {
