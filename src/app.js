@@ -35,7 +35,10 @@ App = {
         App.Simple = await App.contracts.Simple.deployed();
     },
     getvalue: async() => {
+        if (App.blockchain.get_count() == 2)
+            return;
         var value = await App.Simple.get(); // Smart contract call
+
         if (document.getElementById("getValue")) 
             document.getElementById("getValue").id = "getValue-active";
 
