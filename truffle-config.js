@@ -1,7 +1,6 @@
 require('babel-register');
 require('babel-polyfill');
 require('dotenv').config();
-Web3js = require("https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.0/dist/web3.min.js")
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
 module.exports = {
