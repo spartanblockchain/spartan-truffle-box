@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- http://bootflat.github.io/documentation.html -->
 
     <!-- CSS -->
     <link rel="stylesheet" href="index.css">
@@ -23,14 +27,15 @@
         </header>
     </div>
 
-    <div class="blockchain">
+    <div class="blockchain justify-content-center">
         <!-- Blockchain code inserted here -->
     </div>
 
     <div class="set-get">
-        <button type="button" onclick="App.setValue()" class="">Set Value</button>
-        <button type="button" onclick="App.getvalue()" class="">Get Value</button>
+        <button type="btn btn-primary" onclick="App.setValue()" class="">Set Value</button>
+        <button type="btn btn-primary" onclick="App.getvalue()" class="">Get Value</button>
     </div>
+    <div class="justify-content-center" id="getValue"></div>
     
     <footer>
           <p>&copy 2019 Spartan Blockchain Solutions</p>
