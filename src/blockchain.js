@@ -65,7 +65,7 @@ class Blockchain {
 			var datetime = new Date();
 			var date = datetime.toDateString();
 			var time = datetime.toTimeString().slice(0,8);
-			$("#time-"+(this.get_count() - 1)).html(date + time);
+			$("#time-"+(this.get_count() - 1)).html("TimeStamp: " + date + " - " + time);
 		}
 
 		$("#prev-" + this.get_count()).val(this.get_previous_hash());
