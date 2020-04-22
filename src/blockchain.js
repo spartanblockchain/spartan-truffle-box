@@ -23,10 +23,10 @@ class Blockchain {
         return '<label for="data"> Transaction Data: </label><input id="setData-' + this.get_count() + '" type="text" placeholder="Enter your data" required>';
 	}
 	get_previous(){
-        return '<label for="prev"> Previous Hash: </label><input size="85" id="prev-' + this.get_count() + '" readonly type="text"> ';
+        return '<label class="hashLabel" for="prev"> Previous Hash: </label><input class="hashInput" id="prev-' + this.get_count() + '" readonly type="text"> ';
     }
     get_hash(){
-        return '<label for="hash"> Data Hash: </label><input size="85" id="hash-'+this.get_count() + '" readonly type="text"> ';
+        return '<label class="hashLabel" for="hash"> Data Hash: </label><input class="hashInput" id="hash-'+this.get_count() + '" readonly type="text"> ';
     }
     get_form(){
         return '<form id="form-' + this.get_count() + '">' + this.get_name() + this.get_data()  + '<br>' + this.get_previous() + '<br>'+ this.get_hash() + '</form>';
@@ -50,7 +50,6 @@ class Blockchain {
             var count = this.get_count() - 1
             this.disable_entry("setName-" + count)
 			this.disable_entry("setData-" + count)
-			this.disable_entry("hash-" + count)
             this.disable_block(".block-edit")
         }
     }
@@ -65,6 +64,7 @@ class Blockchain {
 		$("#prev-" + this.get_count()).val(this.get_previous_hash());
 
 		this.disable_entry("prev-" + this.get_count())
+		this.disable_entry("hash-" + this.get_count())
 
         var current_name = "#setName-" + this.get_count();
 		var current_data = "#setData-" + this.get_count();
