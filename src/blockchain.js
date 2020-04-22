@@ -1,33 +1,39 @@
 class Blockchain {
 
     constructor() {
-      this.count = 1;
-      this.add_block();
+	  this.count = 1;
+	  // 64 bit hash
+	  this.previous_hash = "0000000000000000000000000000000000000000000000000000000000000000";
+	  this.add_block();
     }
 
     get_count() {
       return this.count;
-    }
+	}
+	get_previous_hash(){
+		return this.previous_hash;
+	}
     get_header(){
         return '<div class="block-edit"><h2>Block ' + this.get_count() + '</h1>';
     }
     get_name(){
         return '<label for="name"> Name: </label><input id="setName-' + this.get_count() + '" type="text" placeholder="Enter your name" required>';
-    }
+	}
     get_data(){
         return '<label for="data"> Transaction Data: </label><input id="setData-' + this.get_count() + '" type="text" placeholder="Enter your data" required>';
+	}
+	get_previous(){
+        return '<label class="hashLabel" for="prev"> Previous Hash: </label><input class="hashInput" id="prev-' + this.get_count() + '" readonly type="text"> ';
     }
     get_hash(){
-        //console.log(sha256('Hash Me!'));
-        return '<label for="hash"> Data Hash: </label><input size="75" id="hash-'+this.get_count() + '" readonly type="text"> ';
+        return '<label class="hashLabel" for="hash"> Data Hash: </label><input class="hashInput" id="hash-'+this.get_count() + '" readonly type="text"> ';
     }
     get_form(){
-        return '<form id="form-' + this.get_count() + '">' + this.get_name() + this.get_data()  +'<br>'+ this.get_hash() + '</form>';
+        return '<form id="form-' + this.get_count() + '">' + this.get_name() + this.get_data()  + '<br>' + this.get_previous() + '<br>'+ this.get_hash() + '</form>';
     }
     get_html(){
         return '<div class="block">' + this.get_header() + this.get_form() + '</div>'
     }
-
 
     disable_entry(element) {
         var element = document.getElementById(element);
@@ -43,28 +49,42 @@ class Blockchain {
         if (this.get_count() != 1){
             var count = this.get_count() - 1
             this.disable_entry("setName-" + count)
-            this.disable_entry("setData-" + count)
+			this.disable_entry("setData-" + count)
             this.disable_block(".block-edit")
         }
     }
 
-    hash_info(html_data) {
-        var message = $(html_data.data.param1).val() + $(html_data.data.param2).val();
-        /* Run message through hashing function
-        */
-        var hash_val = sha256(message);
-        var current_hash = "#hash-" + html_data.data.param3;
-        $(current_hash).val(hash_val);
-    }
     add_block(){
-        $(".blockchain").append(this.get_header() + this.get_form());
+		$(".blockchain").append(this.get_header() + this.get_form());
+
+		if (this.get_count() != 1){
+			this.previous_hash = $("#hash-" + (this.get_count() - 1)).val();
+		}
+
+		$("#prev-" + this.get_count()).val(this.get_previous_hash());
+
+		this.disable_entry("prev-" + this.get_count())
+		this.disable_entry("hash-" + this.get_count())
+
         var current_name = "#setName-" + this.get_count();
-        var current_data = "#setData-" + this.get_count();
-        $(current_name).keypress({param1: current_name, param2: current_data, param3: this.get_count()}, this.hash_info);
-        $(current_data).keypress({param1: current_name, param2: current_data, param3: this.get_count()}, this.hash_info);
+		var current_data = "#setData-" + this.get_count();
+
+		var data = {param1: current_name, param2: current_data, param3: this.get_count(), param4: this.get_previous_hash()};
+
+		$(current_name).keypress(data, this.hash_info);
+		$(current_data).keypress(data, this.hash_info);
 
         this.count++;
         console.log("Block #" + (this.get_count() - 1) + " Added");
+	}
+	
+	hash_info(html_data) {
+	    var message = $(html_data.data.param1).val() + $(html_data.data.param2).val() + $(html_data.data.param4).val();
+		/* Run message through hashing function
+        */
+        var hash_val = sha256(message);
+        var current_hash = "#hash-" + html_data.data.param3;
+		$(current_hash).val(hash_val);
     }
 }
 
