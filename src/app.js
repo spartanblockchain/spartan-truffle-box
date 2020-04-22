@@ -36,7 +36,16 @@ App = {
     },
     getvalue: async() => {
         var value = await App.Simple.get(); // Smart contract call
-        $('#getValue').html(value);
+        if (document.getElementById("getValue")) 
+            document.getElementById("getValue").id = "getValue-active";
+
+        $('#getValue-active').html(value);
+        
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            left: 100,
+            behavior: 'smooth'
+          });
         console.log("Successfully retrieved value.");
     },
     setValue: async() => {
