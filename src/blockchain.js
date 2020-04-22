@@ -3,7 +3,7 @@ class Blockchain {
     constructor() {
 	  this.count = 1;
 	  // 64 bit hash
-	  this.previous_hash = "0000000000000000000000000000000000000000000000000000000000000000";
+	  this.previous_hash = "00000000000000000000000000000000000000000000000000000000000";
 	  this.add_block();
     }
 
@@ -86,7 +86,8 @@ class Blockchain {
 	}
 	
 	hash_info(html_data) {
-	    var message = $(html_data.data.param1).val() + $(html_data.data.param2).val() + $(html_data.data.param4).val();
+		var d = new Date().toString();
+	    var message = $(html_data.data.param1).val() + $(html_data.data.param2).val() + $(html_data.data.param4).val() + d;
 		/* Run message through hashing function
         */
         var hash_val = sha256(message);
