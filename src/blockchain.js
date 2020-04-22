@@ -14,10 +14,13 @@ class Blockchain {
 		return this.previous_hash;
 	}
     get_header(){
-        return '<div class="block-edit"><h2>Block ' + this.get_count() + '</h1>';
+        return '<div class="block-edit"><h2>Block ' + this.get_count() + '</h2>' + this.get_timestamp();
     }
     get_name(){
         return '<label for="name"> Name: </label><input id="setName-' + this.get_count() + '" type="text" placeholder="Enter your name" required>';
+	}
+	get_timestamp() {
+		return '<span id=time-'+this.get_count() + '> </span>'
 	}
     get_data(){
         return '<label for="data"> Transaction Data: </label><input id="setData-' + this.get_count() + '" type="text" placeholder="Enter your data" required>';
@@ -59,6 +62,10 @@ class Blockchain {
 
 		if (this.get_count() != 1){
 			this.previous_hash = $("#hash-" + (this.get_count() - 1)).val();
+			var datetime = new Date();
+			var date = datetime.toDateString();
+			var time = datetime.toTimeString().slice(0,8);
+			$("#time-"+(this.get_count() - 1)).html(date + time);
 		}
 
 		$("#prev-" + this.get_count()).val(this.get_previous_hash());
